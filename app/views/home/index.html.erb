@@ -1,0 +1,64 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1482731215275-a1f151646268?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c986e7d7f54fa424c43408ecf7659752&auto=format&fit=crop&w=1500&q=80');">
+  <div class="banner-content">
+    <h1>A problem to be fixed?</h1>
+    <p>Find the best people around you</p>
+
+
+
+<%= form_tag(providers_path, method: :get) do %>
+
+    <%= text_field_tag :address, placeholder="Where"%>
+    <%= text_field_tag :date, placeholder="When"%>
+
+  <div class="form-actions">
+    <%= submit_tag 'Search' %>
+  </div>
+
+  <% end %>
+
+  <!--   <form action="#" class="form-inline">
+      <input type="text" class="form-control input-lg" placeholder="Where?">
+      <input type="text" class="form-control input-lg" placeholder="When?">
+
+      <select name="" id="" class="form-control input-lg">
+      <% @services.each do |service| %>
+      <option value= "<%= service.id %>"><%= service.name %> </option>
+      <% end  %>
+      </select>
+      <br>
+      <br>
+      <input type="submit" class="btn btn-primary btn-lg" value="Search">
+    </form> -->
+  </div>
+</div>
+
+<div class =container>
+  <div class = row>
+    <h2 class = 'text-center'> In people we trust </h2>
+    <p class = 'text-center'> <i>“Always do sober what you said you'd do drunk. That will teach you to keep your mouth shut.”</i></p>
+    <p class = 'text-center'>  ― Ernest Hemingway </p>
+  </div>
+</div>
+
+<section class="advantages">
+        <div class="container">
+          <div class="grid-g">
+            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+              <i class="icon_ad fas fa-check"></i>
+              <div class="title">Professionnels certifiés</div>
+              <p>Pour votre sécurité, tous les professionnels Fixit ont été contrôlés et approuvés.</p>
+            </div>
+            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+
+              <i class="icon_ad far fa-comment"></i>
+              <div class="title">Avis clients et photos</div>
+              <p>Découvrez des dizaines d’avis vérifiés et de photos des projets.</p>
+            </div>
+            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+              <i class="icon_ad far fa-thumbs-up"></i>
+              <div class="title">Simple et gratuit</div>
+              <p>Fixit est 100% gratuit et ne prend aucune commission sur vos projets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
