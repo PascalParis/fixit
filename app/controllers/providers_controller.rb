@@ -4,6 +4,7 @@ class ProvidersController < ApplicationController
 
   def index
     @providers = Provider.all
+    render :index
   end
 
   def show

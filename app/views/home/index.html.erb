@@ -3,11 +3,22 @@
     <h1>A problem to be fixed?</h1>
     <p>Find the best people around you</p>
 
-    <form action="#" class="form-inline">
+
+
+<%= form_tag(providers_path, method: :get) do %>
+
+    <%= text_field_tag :address, placeholder="Where"%>
+    <%= text_field_tag :date, placeholder="When"%>
+
+  <div class="form-actions">
+    <%= submit_tag 'Search' %>
+  </div>
+
+  <% end %>
+
+  <!--   <form action="#" class="form-inline">
       <input type="text" class="form-control input-lg" placeholder="Where?">
       <input type="text" class="form-control input-lg" placeholder="When?">
-
-
 
       <select name="" id="" class="form-control input-lg">
       <% @services.each do |service| %>
@@ -17,7 +28,7 @@
       <br>
       <br>
       <input type="submit" class="btn btn-primary btn-lg" value="Search">
-    </form>
+    </form> -->
   </div>
 </div>
 
