@@ -10,7 +10,7 @@
     <%= f.input :presentation %>
     <%= f.input :range %>
     <%= f.input :photo %>
-    <%= f.association :service %>
+    <%= f.association :service, prompt: "select service", include_blank: false %>
   </div>
 
   <div class="form-actions">

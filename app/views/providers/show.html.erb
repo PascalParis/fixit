@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<div class="wrapper">
 <p><strong>Name: </strong><%= @provider.name %></p>
 <p><strong>Address: </strong><%= @provider.address %></p>
 <p><strong>Email: </strong><%= @provider.email %></p>
@@ -8,6 +7,12 @@
 <p><strong>Presentation: </strong><%= @provider.presentation %></p>
 <p><strong>Range (km): </strong><%= @provider.range %></p>
 <p><strong>Service: </strong><%= @provider.service.name %></p>
+<p>
+  <strong>Lat: </strong><%= @provider.latitude %> |
+  <strong>Long: </strong><%= @provider.longitude %>
+
+</p>
+
 <p><strong>Photo: </strong><%= @provider.photo %></p>
 
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
@@ -15,26 +20,19 @@
 <%= link_to 'Back', providers_path %>
 <br><br><br>
 
-<% "https://maps.googleapis.com/maps/api/geocode/json?address=" + "Brussels" + "&key=AIzaSyB3nFJh-lV7o_PtxifCaNTCNYhPbbAtrfU" %>
-
-<div id="map"></div>
-
-</div>
-
-    <style>
-      #map {
-        width: 100%;
-        height: 400px;
-        background-color: grey;
-      }
-    </style>
+<div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+></div>
 
    <!-- Gmaps js: building the map -->
     <script>
       function initMap() {
+        var lat = <%= @provider.latitude %>;
+        var lng = <%= @provider.longitude %>;
         // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 50.9, lng: 4.5},
+          center: {lat: lat, lng: lng},
           scrollwheel: false,
           zoom: 8
         });
@@ -42,16 +40,15 @@
           content: "<%= @provider.name %>"
         });
         var marker = new google.maps.Marker({
-          position: {lat: 50.9, lng: 4.5},
+          position: {lat: lat, lng: lng},
           map: map
         });
-
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-
       }
     </script>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
