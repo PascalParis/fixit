@@ -1,4 +1,5 @@
-issues = [
+
+problems = [
   {
     name: "Roof Damage",
     price: 100,
@@ -44,4 +45,4 @@ issues = [
 # categories.each { |category| category.create(name: category) }
 
 
-issues.each { |issue| Iissue.create(issue) }
+problems.each { |issue| Iissue.create(problems) }
