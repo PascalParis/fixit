@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@provider) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+    <%= f.input :presentation %>
+    <%= f.input :range %>
+    <%= f.input :photo %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
