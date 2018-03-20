@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Providers</h3>
+
+<table class="table table-striped"">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email / Phone</th>
+      <th scope="col">Presentation</th>
+    </tr>
+  </thead>
+  <tbody>
+
+     <% @providers.each do |provider| %>
+        <tr>
+          <td><%= link_to provider.name, provider  %></td>
+          <td><%= provider.address %></td>
+          <td><%= provider.phone_number %> <%= provider.email %></td>
+          <td><%= provider.presentation %></td>
+  <!--         <td><%= provider.range %></td>
+          <td><%= provider.photo %></td> -->
+        </tr>
+      <% end %>
+
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Provider', new_provider_path %>
