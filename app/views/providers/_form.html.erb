@@ -11,7 +11,7 @@
     <%= f.input :range %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.association :service %>
+    <%= f.association :service, prompt: "select service", include_blank: false %>
 </div>
 
   <div class="form-actions">
