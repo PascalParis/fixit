@@ -1,15 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<div class="wrapper">
-<p><strong>Name: </strong><%= @provider.name %></p>
-<p><strong>Address: </strong><%= @provider.address %></p>
-<p><strong>Email: </strong><%= @provider.email %></p>
-<p><strong>Phone number: </strong><%= @provider.phone_number %></p>
-<p><strong>Presentation: </strong><%= @provider.presentation %></p>
-<p><strong>Range (km): </strong><%= @provider.range %></p>
-<p><strong>Service: </strong><%= @provider.service.name %></p>
-<p><strong>Photo: </strong><%= @provider.photo %></p>
+<div class="container">
+<div class="row">
+    <div class="col-sm-6">
 
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @provider.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @provider.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @provider.phone_number %>
+</p>
+
+<p>
+  <strong>Presentation:</strong>
+  <%= @provider.presentation %>
+</p>
+
+<p>
+  <strong>Range (km):</strong>
+  <%= @provider.range %>
+</p>
+
+</div>
+    <div class="col-sm-6">
+
+
+<%= cl_image_tag @provider.photo, height: 200, width: 200, crop: :fill %>
+</div>
+</div>
+</div>
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
 <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', providers_path %>
