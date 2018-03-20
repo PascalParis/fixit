@@ -8,6 +8,7 @@
       <th scope="col">Name</th>
       <th scope="col">Address</th>
       <th scope="col">Email / Phone</th>
+      <th scope="col">Service</th>
       <th scope="col">Presentation</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
           <td><%= link_to provider.name, provider  %></td>
           <td><%= provider.address %></td>
           <td><%= provider.phone_number %> <%= provider.email %></td>
+          <td><%= provider.service.name %></td>
           <td><%= provider.presentation %></td>
   <!--         <td><%= provider.range %></td>
           <td><%= provider.photo %></td> -->

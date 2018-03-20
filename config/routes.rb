@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   resources :providers
   # root to: 'pages#home'
   root to: "home#index"
