@@ -1,54 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 
 <div class="container">
-<div class="row">
+  <div class="row">
     <div class="col-sm-6">
+        <p><strong>Name:</strong> <%= @provider.name %></p>
+        <p><strong>Address:</strong><%= @provider.address %></p>
+        <p><strong>Email:</strong> <%= @provider.email %></p>
+        <p><strong>Phone number:</strong><%= @provider.phone_number %></p>
+        <p><strong>Presentation:</strong><%= @provider.presentation %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @provider.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @provider.address %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @provider.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @provider.phone_number %>
-</p>
-
-<p>
-  <strong>Presentation:</strong>
-  <%= @provider.presentation %>
-</p>
-
-<p><strong>Range (km):</strong> <%= @provider.range %> </p>
-<p><strong>Service: </strong><%= @provider.service.name %></p>
- <p>
-  <strong>Lat: </strong><%= @provider.latitude %> |
-  <strong>Long: </strong><%= @provider.longitude %>
-</p>
-      
-</div>
+        <p><strong>Range (km):</strong> <%= @provider.range %> </p>
+        <p><strong>Service: </strong><%= @provider.service.name %></p>
+        <p>
+          <strong>Lat: </strong><%= @provider.latitude %> |
+          <strong>Long: </strong><%= @provider.longitude %>
+        </p>
+    </div>
     <div class="col-sm-6">
+      <%= cl_image_tag @provider.photo, height: 300, width: 300, crop: :fill %>
+    </div>
 
-
-<%= cl_image_tag @provider.photo, height: 200, width: 200, crop: :fill %>
+  <%= link_to 'Edit', edit_provider_path(@provider) %> |
+  <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', providers_path %>
+ </div>
 </div>
-</div>
-</div>
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', providers_path %>
-<br><br><br>
+<br>
 
 <div
   id="map"
@@ -60,7 +36,8 @@
       function initMap() {
         var lat = <%= @provider.latitude %>;
         var lng = <%= @provider.longitude %>;
-        // Create a map object and specify the DOM element for display.
+        var radius = <%= @provider.range * 1000 %>;
+
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: lat, lng: lng},
           scrollwheel: false,
@@ -76,7 +53,19 @@
         marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
+
+        var circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            radius: radius
+          });
+        circle.bindTo('center', marker, 'position');
       }
+
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
