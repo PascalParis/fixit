@@ -1,10 +1,17 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
-
   def index
-    @providers = Provider.all
     render :index
+      @providers = Provider.all
+      # @providers = Provider.where.not(latitude: nil, longitude: nil)
+      @markers = @providers.map do |provider|
+        {
+          lat: provider.latitude,
+          lng: provider.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/providers/map_box", locals: { flat: flat }) }
+        }
+      end
   end
 
   def show
@@ -18,9 +25,8 @@ class ProvidersController < ApplicationController
   end
 
   def create
-
     @provider = Provider.new(provider_params)
-    @provider.service = Service.find(params[:service_id])
+    @provider.service = Service.find(provider_params[:service_id]) unless provider_params[:service_id] == ""
 
     respond_to do |format|
       if @provider.save
@@ -31,11 +37,6 @@ class ProvidersController < ApplicationController
         format.json { render json: @provider.errors, status: :unprocessable_entity }
       end
     end
-
-   # @dose = Dose.new(doses_params)
-   #  @dose.cocktail = @cocktail
-
-
   end
 
   def update
@@ -67,5 +68,9 @@ class ProvidersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
       params.require(:provider).permit(:name, :address, :email, :phone_number, :presentation, :range, :photo, :service_id)
+    end
+
+    def article_params
+      params.require(:article).permit(:title, :body, :photo)
     end
 end
