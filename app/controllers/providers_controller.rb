@@ -71,4 +71,8 @@ class ProvidersController < ApplicationController
     def provider_params
       params.require(:provider).permit(:name, :address, :email, :phone_number, :presentation, :range, :photo)
     end
+
+    def article_params
+      params.require(:article).permit(:title, :body, :photo)
+    end
 end
