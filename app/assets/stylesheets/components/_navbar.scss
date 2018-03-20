@@ -9,15 +9,11 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  top: 0px;
   width: 100%;
-  z-index: 1000;
+  z-index: 999;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
-}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
