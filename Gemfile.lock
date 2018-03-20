@@ -216,10 +216,8 @@ DEPENDENCIES
   cloudinary
   devise
   figaro
-
   font-awesome-sass (~> 5.0.6)
   geocoder
-
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
