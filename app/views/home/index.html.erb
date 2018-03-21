@@ -5,32 +5,14 @@
 
 
 <div class="form_landing">
-<%= form_tag(providers_path, method: :get) do %>
 
-    <%= text_field_tag :address, nil,  placeholder: 'Where?' %>
+      <%= form_tag(providers_path, method: :get) do %>
+      <%= text_field_tag :address %>
+      <%= collection_select(:service, :id, Service.all, :id, :name) %>
 
-    <%= collection_select(:service, :id, Service.all, :id, :name) %>
-</div>
-
-  <div class="form-actions form_landing">
-    <%= submit_tag 'Search' %>
-  </div>
-
+    </div>
+    <div class="form-actions form_landing"><%= submit_tag 'Search' %></div>
   <% end %>
-
-  <!--   <form action="#" class="form-inline">
-      <input type="text" class="form-control input-lg" placeholder="Where?">
-      <input type="text" class="form-control input-lg" placeholder="When?">
-
-      <select name="" id="" class="form-control input-lg">
-      <% @services.each do |service| %>
-      <option value= "<%= service.id %>"><%= service.name %> </option>
-      <% end  %>
-      </select>
-      <br>
-      <br>
-      <input type="submit" class="btn btn-primary btn-lg" value="Search">
-    </form> -->
   </div>
 </div>
 
