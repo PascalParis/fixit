@@ -3,8 +3,7 @@ class ProvidersController < ApplicationController
 
   def index
 
-      @providers = Provider.all
-      # @providers = Provider.where.not(latitude: nil, longitude: nil)
+      @providers = Provider.where.not(latitude: nil, longitude: nil)
       @markers = @providers.map do |provider|
         {
           lat: provider.latitude,
@@ -15,6 +14,10 @@ class ProvidersController < ApplicationController
   end
 
   def show
+    @provider_geo = [{
+          lat: @provider.latitude,
+          lng: @provider.longitude
+        }]
   end
 
   def new
