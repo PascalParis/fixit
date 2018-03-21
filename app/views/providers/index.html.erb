@@ -4,34 +4,28 @@
 
 <h3>Providers</h3>
 
-<table class="table table-striped"">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Email / Phone</th>
-      <th scope="col">Service</th>
-      <th scope="col">Presentation</th>
-    </tr>
-  </thead>
-  <tbody>
 
-     <% @providers.each do |provider| %>
-        <tr>
-          <td><%= link_to provider.name, provider  %></td>
-          <td><%= provider.address %></td>
-          <td><%= provider.phone_number %> <%= provider.email %></td>
-          <td><%= provider.service.name %></td>
-          <td><%= provider.presentation %></td>
-  <!--         <td><%= provider.range %></td>
-          <td><%= provider.photo %></td> -->
-        </tr>
-      <% end %>
+<% @providers.each do |provider| %>
 
-  </tbody>
-</table>
+  <div class="card" >
+    <div class="message">
+      <div class="message-name">
+        <h3><%= link_to provider.name, provider  %></h3>
+        <p><%= provider.service.name %></p>
+      </div>
+      <div class="message-body">
+        <p><strong>Description</strong></p>
+        <p><%= provider.phone_number %> <%= provider.email %></p>
+        <p>
+          <%= provider.presentation %>
+        </p>
+      </div>
+     <%=  cl_image_tag provider.photo,  class: "image_card" %>
+    </div>
+  </div>
+  <br>
 
-<br>
+<% end %>
 
 <%= link_to 'New Provider', new_provider_path %>
 </div>
