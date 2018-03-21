@@ -1,119 +1,26 @@
 <h3>Providers</h3>
 
-<table class="table table-striped"">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Email / Phone</th>
-      <th scope="col">Service</th>
-      <th scope="col">Presentation</th>
-    </tr>
-  </thead>
-  <tbody>
 
-     <% @providers.each do |provider| %>
-        <tr>
-          <td><%= link_to provider.name, provider  %></td>
-          <td><%= provider.address %></td>
-          <td><%= provider.phone_number %> <%= provider.email %></td>
-          <td><%= provider.service.name %></td>
-          <td><%= provider.presentation %></td>
-  <!--         <td><%= provider.range %></td>
-          <td><%= provider.photo %></td> -->
-        </tr>
-      <% end %>
-
-  </tbody>
-</table>
-
-<br>
-  <div class="card" >
-  <div class="message">
-      <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>Service</p>
-  </div>
-  <div class="message-body">
-    <p><strong>Description</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <img class="image_card", src="https://picsum.photos/200/300/?random">
-</div>
-</div>
-<br>
-<div class="card">
-  <div class="message">
-      <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>Service</p>
-  </div>
-  <div class="message-body">
-    <p><strong>Description</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <img class="image_card", src="https://picsum.photos/200/300/?random">
-</div>
-</div>
-
-<br>
-
-  <div class="card">
-  <div class="message">
-      <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>Service</p>
-  </div>
-  <div class="message-body">
-    <p><strong>Description</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <img class="image_card", src="https://picsum.photos/200/300/?random">
-</div>
-</div>
-
-<br>
+<% @providers.each do |provider| %>
 
   <div class="card" >
-  <div class="message">
+    <div class="message">
       <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>Service</p>
+        <h3><%= link_to provider.name, provider  %></h3>
+        <p><%= provider.service.name %></p>
+      </div>
+      <div class="message-body">
+        <p><strong>Description</strong></p>
+        <p><%= provider.phone_number %> <%= provider.email %></p>
+        <p>
+          <%= provider.presentation %>
+        </p>
+      </div>
+     <%=  cl_image_tag provider.photo,  class: "image_card" %>
+    </div>
   </div>
-  <div class="message-body">
-    <p><strong>Description</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <img class="image_card", src="https://picsum.photos/200/300/?random">
-</div>
-</div>
+  <br>
 
-<br>
-
-  <div class="card">
-  <div class="message">
-      <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>Service</p>
-  </div>
-  <div class="message-body">
-    <p><strong>Description</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <img class="image_card", src="https://picsum.photos/200/300/?random">
-</div>
-</div>
-
-<br>
+<% end %>
 
 <%= link_to 'New Provider', new_provider_path %>
