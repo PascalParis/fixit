@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="row">
+  <div class="row margins">
     <div class="col-sm-6">
         <p><strong>Name:</strong> <%= @provider.name %></p>
         <p><strong>Address:</strong><%= @provider.address %></p>
@@ -19,15 +19,15 @@
       <%= cl_image_tag @provider.photo, height: 300, width: 300, crop: :fill %>
     </div>
 
-  <%= link_to 'Edit', edit_provider_path(@provider) %> |
-  <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', providers_path %>
- </div>
-</div>
-<br>
+    <%= link_to 'Edit', edit_provider_path(@provider) %> |
+    <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', providers_path %>
+    <br><br>
+    <div
+      id="map"
+      data-markers="<%= @provider_geo.to_json %>"
+    ></div>
 
-<div
-  id="map"
-  data-markers="<%= @provider_geo.to_json %>"
-></div>
+  </div>
+</div>
 
