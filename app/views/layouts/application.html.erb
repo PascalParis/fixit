@@ -13,14 +13,16 @@
   <body>
 
     <%= render 'shared/navbar' %>
-    <div class="empty"></div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class = "empty">
 
-    <div class="empty"></div>
 
+          <!-- <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p> -->
+          <%= yield %>
+
+    <div class = "empty">
+  
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
