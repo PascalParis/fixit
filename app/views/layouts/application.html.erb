@@ -15,17 +15,10 @@
 
     <%= render 'shared/navbar' %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>
 
-    </div>
-  </div>
-</div>
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
