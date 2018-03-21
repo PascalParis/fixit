@@ -21,7 +21,7 @@ if (mapElement) {
   map.drawCircle({
     lat: markers[0].lat,
     lng: markers[0].lng,
-    radius: 10000
+    radius: markers[0].range * 1000
   });
 
 }

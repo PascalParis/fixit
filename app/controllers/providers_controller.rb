@@ -22,7 +22,8 @@ class ProvidersController < ApplicationController
   def show
     @provider_geo = [{
           lat: @provider.latitude,
-          lng: @provider.longitude
+          lng: @provider.longitude,
+          range: @provider.range
         }]
   end
 
