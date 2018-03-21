@@ -2,8 +2,13 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   def index
-    render :index
+    if params[:service][:id]
+      @providers = Provider.search(params[:service][:id])
+    else
       @providers = Provider.all
+    end
+
+
       # @providers = Provider.where.not(latitude: nil, longitude: nil)
       @markers = @providers.map do |provider|
         {
