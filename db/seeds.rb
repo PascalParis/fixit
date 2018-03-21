@@ -29,12 +29,12 @@ problems = [
     name: "Peeling Paint",
     price: 70,
     duration: 2,
-    }
+    },
   {
     name: "Broken ceiling",
     price: 200,
     duration: 19,
-    }
+    },
   {
     name: "Flooring",
     price: 500,
@@ -45,4 +45,4 @@ problems = [
 # categories.each { |category| category.create(name: category) }
 
 
-problems.each { |issue| Iissue.create(problems) }
+problems.each { |issue| Issue.create(problems) }
