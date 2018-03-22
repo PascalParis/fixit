@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
 
 .advantages {
-    padding: 60px 0;
-    text-align: center;
-    background: #fff;
+  padding: 60px 0;
+  text-align: center;
+  background: #fff;
 }
 .grid-g {
   display: flex;
@@ -12,10 +12,10 @@
   padding:20px;
 }
 .advantages .title {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    color: #51555a;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #51555a;
 }
 .icon_ad {
   font-size: 30px;
@@ -30,4 +30,51 @@
 .where {
   font-size: 30px;
   margin: 10px;
+}
+
+select {
+  height: 40px;
+  // border-radius: 7%;
+  background-color: #3CBC8D;
+  // border: 2px #50bc8d;
+  color: white;
+  border: 10px;
+  border-color: black;
+
+}
+
+option {
+  height: 50px;
+  // border-radius: 5%;
+  background-color: white;
+  border: 2px #50bc8d;
+  color: gray;
+}
+
+#address {
+  height: 40px;
+  width: 300px;
+  border: 10px;
+  border-color: black;
+  // border-radius: 4px;
+}
+
+.btn {
+  background-color: #3CBC8D;
+  // border: 2px #3CBC8D;
+  border-color: black;
+  height: 40px;
+  border: 10px;
+  border-radius: 0px;
+  margin-left: 1px;
+}
+
+.btn:hover {
+  background-color: #50bc8d;
+}
+
+.inline-form-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
