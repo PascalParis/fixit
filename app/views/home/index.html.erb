@@ -7,7 +7,7 @@
 
             <%= form_tag(providers_path, method: :get, class: "") do %>
           <%= text_field_tag :address %>
-        <%= collection_select(:service, :id, Service.all, :id, :name) %>
+        <%= collection_select(:service, :id, Service.all, :id, :name, {prompt: 'Find a service'}) %>
 
 
 
