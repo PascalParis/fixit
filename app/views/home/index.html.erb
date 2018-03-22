@@ -3,19 +3,14 @@
     <h1>A problem to be fixed?</h1>
     <p>Find the best people around you</p>
 
+    <form class="inline-form-index">
 
             <%= form_tag(providers_path, method: :get, class: "") do %>
           <%= text_field_tag :address %>
         <%= collection_select(:service, :id, Service.all, :id, :name, {prompt: 'Find a service'}) %>
 
-
-
-    <div class="form-actions form_landing"> <%= submit_tag 'Search', data: { disable_with: false } %> </div>
-  <% end %>
-    </div>
-
-  </div>
-
+<%= submit_tag 'Search', class: "btn btn-primary" %>
+<% end %>
 </div>
 
 </div>
@@ -46,6 +41,11 @@
         <i class="icon_ad far fa-thumbs-up"></i>
         <div class="title">Simple et gratuit</div>
         <p>Fixit est 100% gratuit et ne prend aucune commission sur vos projets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
       </div>
     </div>
   </div>
