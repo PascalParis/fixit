@@ -3,7 +3,6 @@
     <h1>A problem to be fixed?</h1>
     <p>Find the best people around you</p>
 
-    <form class="inline-form-index">
 
             <%= form_tag(providers_path, method: :get, class: "") do %>
           <%= text_field_tag :address %>
@@ -11,15 +10,12 @@
 
 
 
-    <div class="form-actions form_landing"> <%= submit_tag 'Search', data: { disable_with: false }
-%></div>
+    <div class="form-actions form_landing"> <%= submit_tag 'Search', data: { disable_with: false } %> </div>
   <% end %>
     </div>
 
   </div>
 
-<%= submit_tag 'Search', class: "btn btn-primary" %>
-<% end %>
 </div>
 
 </div>
