@@ -25,10 +25,12 @@ class ProvidersController < ApplicationController
           lng: @provider.longitude,
           range: @provider.range
         }]
+    authorize @provider
   end
 
   def new
     @provider = Provider.new
+    authorize @provider
   end
 
   def edit
@@ -37,6 +39,8 @@ class ProvidersController < ApplicationController
   def create
     @provider = Provider.new(provider_params)
     @provider.service = Service.find(provider_params[:service_id]) unless provider_params[:service_id] == ""
+    @provider.user = current_user
+    authorize @provider
 
     respond_to do |format|
       if @provider.save
@@ -73,6 +77,7 @@ class ProvidersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
       @provider = Provider.find(params[:id])
+      authorize @provider
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -2,30 +2,40 @@
 <div class="container">
   <div class="row margins">
     <div class="col-sm-6">
-        <p><strong>Name:</strong> <%= @provider.name %></p>
-        <p><strong>Address:</strong><%= @provider.address %></p>
-        <p><strong>Email:</strong> <%= @provider.email %></p>
-        <p><strong>Phone number:</strong><%= @provider.phone_number %></p>
-        <p><strong>Presentation:</strong><%= @provider.presentation %></p>
+      <p><strong>Name:</strong> <%= @provider.name %></p>
+      <p><strong>Address:</strong><%= @provider.address %></p>
+      <p><strong>Email:</strong> <%= @provider.email %></p>
+      <p><strong>Phone number:</strong><%= @provider.phone_number %></p>
+      <p><strong>Presentation:</strong><%= @provider.presentation %></p>
 
-        <p><strong>Range (km):</strong> <%= @provider.range %> </p>
-        <p><strong>Service: </strong><%= @provider.service.name %></p>
-        <p>
-          <strong>Lat: </strong><%= @provider.latitude %> |
-          <strong>Long: </strong><%= @provider.longitude %>
-        </p>
+      <p><strong>Range (km):</strong> <%= @provider.range %> </p>
+      <p><strong>Service: </strong><%= @provider.service.name %></p>
+      <p>
+        <strong>Lat: </strong><%= @provider.latitude %> |
+        <strong>Long: </strong><%= @provider.longitude %>
+      </p>
     </div>
+
+
     <div class="col-sm-6">
       <%= cl_image_tag @provider.photo, height: 300, width: 300, crop: :fill %>
     </div>
 
+    <% if policy(@provider).edit? %>
     <%= link_to 'Edit', edit_provider_path(@provider) %> |
+    <% end %>
+
+    <% if policy(@provider).destroy? %>
     <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %>
+
     <%= link_to 'Back', providers_path %>
+
+
     <br><br>
     <div
-      id="map"
-      data-markers="<%= @provider_geo.to_json %>"
+    id="map"
+    data-markers="<%= @provider_geo.to_json %>"
     ></div>
 
   </div>
