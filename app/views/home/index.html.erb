@@ -10,9 +10,11 @@
       <%= text_field_tag :address %>
       <%= collection_select(:service, :id, Service.all, :id, :name) %>
 
-    </div>
-    <div class="form-actions form_landing"><%= submit_tag 'Search' %></div>
+    <div class="form-actions form_landing"> <%= submit_tag 'Search', data: { disable_with: false }
+%></div>
   <% end %>
+    </div>
+
   </div>
 </div>
 

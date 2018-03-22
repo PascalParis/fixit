@@ -2,8 +2,10 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:service] &&  params[:service][:id].present?
-      @providers = Provider.search(params[:service][:id])
+    if params[:service].present? && params[:address].present?
+
+      @providers = Provider.search(params[:service][:id], params[:address])
+
     else
       @providers = Provider.all
     end
