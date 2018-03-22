@@ -29,11 +29,13 @@ class ProfilesController < ApplicationController
     else
       render :new, errors: 'Something went wrong'
     end
+    authorize @profile
   end
 
   def destroy
     @profile.destroy
     redirect_to :root_path
+    authorize @profile
   end
 
   private
