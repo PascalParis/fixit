@@ -3,20 +3,19 @@
     <h1>A problem to be fixed?</h1>
     <p>Find the best people around you</p>
 
+    <form class="inline-form-index">
 
-<div class="form_landing">
+            <%= form_tag(providers_path, method: :get, class: "") do %>
+          <%= text_field_tag :address %>
+        <%= collection_select(:service, :id, Service.all, :id, :name) %>
 
-      <%= form_tag(providers_path, method: :get) do %>
-      <%= text_field_tag :address %>
-      <%= collection_select(:service, :id, Service.all, :id, :name) %>
 
-    </div>
-    <div class="form-actions form_landing"><%= submit_tag 'Search' %></div>
-  <% end %>
-  </div>
+<%= submit_tag 'Search', class: "btn btn-primary" %>
+<% end %>
+</div>
 </div>
 
-<div class =container>
+<div class ="container">
   <div class = row>
     <h2 class = 'text-center'> In people we trust </h2>
     <p class = 'text-center'> <i>“Always do sober what you said you'd do drunk. That will teach you to keep your mouth shut.”</i></p>
@@ -25,24 +24,24 @@
 </div>
 
 <section class="advantages">
-        <div class="container">
-          <div class="grid-g">
-            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
-              <i class="icon_ad fas fa-check"></i>
-              <div class="title">Professionnels certifiés</div>
-              <p>Pour votre sécurité, tous les professionnels Fixit ont été contrôlés et approuvés.</p>
-            </div>
-            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+  <div class="container">
+    <div class="grid-g">
+      <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+        <i class="icon_ad fas fa-check"></i>
+        <div class="title">Professionnels certifiés</div>
+        <p>Pour votre sécurité, tous les professionnels Fixit ont été contrôlés et approuvés.</p>
+      </div>
+      <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
 
-              <i class="icon_ad far fa-comment"></i>
-              <div class="title">Avis clients et photos</div>
-              <p>Découvrez des dizaines d’avis vérifiés et de photos des projets.</p>
-            </div>
-            <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
-              <i class="icon_ad far fa-thumbs-up"></i>
-              <div class="title">Simple et gratuit</div>
-              <p>Fixit est 100% gratuit et ne prend aucune commission sur vos projets.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <i class="icon_ad far fa-comment"></i>
+        <div class="title">Avis clients et photos</div>
+        <p>Découvrez des dizaines d’avis vérifiés et de photos des projets.</p>
+      </div>
+      <div class="advantage grid-u-1 grid-u-sm-12-24 grid-u-md-8-24">
+        <i class="icon_ad far fa-thumbs-up"></i>
+        <div class="title">Simple et gratuit</div>
+        <p>Fixit est 100% gratuit et ne prend aucune commission sur vos projets.</p>
+      </div>
+    </div>
+  </div>
+</section>
