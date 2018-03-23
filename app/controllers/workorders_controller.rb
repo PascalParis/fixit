@@ -12,11 +12,21 @@ class WorkordersController < ApplicationController
   end
 
   def new
+    @provider = Provider.find(params[:provider_id])
+    @user = current_user
     @workorder = Workorder.new
     authorize @workorder
   end
 
   def create
+    @workorder = Workorder.new(params[:id])
+    @workorder.user = current_user
+    @workorder.provider = Provider.find(params[:item_id])
+    if @workorder.save!
+      redirect_to user_workorder_path(current_user, @workorder)
+    else
+      render :new
+    end
   end
 
   def delete

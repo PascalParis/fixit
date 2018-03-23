@@ -11,8 +11,11 @@
       <p><strong>Range (km):</strong> <%= @provider.range %> </p>
       <p><strong>Service: </strong><%= @provider.service.name %></p>
       <p>
-        <strong>Lat: </strong><%= @provider.latitude %> |
-        <strong>Long: </strong><%= @provider.longitude %>
+         <div><button class="btn btn-primary "><span><%= link_to "Book the service of this worker", new_provider_workorder_path(@provider), class:"indexlink" %></span></button>
+      </div>
+
+      <!--   <strong>Lat: </strong><%= @provider.latitude %> |
+        <strong>Long: </strong><%= @provider.longitude %> -->
       </p>
     </div>
 
@@ -37,6 +40,7 @@
     id="map"
     data-markers="<%= @provider_geo.to_json %>"
     ></div>
+
 
   </div>
 </div>
