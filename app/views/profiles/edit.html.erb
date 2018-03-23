@@ -1,2 +1,55 @@
-<h1>Profile#edit</h1>
-<p>Find me in app/views/profile/edit.html.erb</p>
+<div class="top-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
+
+  <div class= "top-banner-content" >
+
+  <h2> <%= @provider.name %> : <%= @provider.service.name %> </h2>
+
+ </div>
+</div>
+
+<div class="container">
+  <div class="row margins">
+    <div class="col-sm-6">
+      <p><strong>Name:</strong> <%= @provider.name %></p>
+      <p><strong>Address:</strong><%= @provider.address %></p>
+      <p><strong>Email:</strong> <%= @provider.email %></p>
+      <p><strong>Phone number:</strong><%= @provider.phone_number %></p>
+      <p><strong>Presentation:</strong><%= @provider.presentation %></p>
+
+      <p><strong>Range (km):</strong> <%= @provider.range %> </p>
+      <p><strong>Service: </strong><%= @provider.service.name %></p>
+      <p>
+         <div><%= link_to "Book the service of this worker", new_provider_workorder_path(@provider), class:"indexlink btn btn-primary special_button" %>
+      </div>
+
+      <!--   <strong>Lat: </strong><%= @provider.latitude %> |
+        <strong>Long: </strong><%= @provider.longitude %> -->
+      </p>
+    </div>
+
+
+    <div class="col-sm-6">
+      <%= cl_image_tag @provider.photo, height: 300, width: 300, crop: :fill %>
+    </div>
+
+    <% if policy(@provider).edit? %>
+    <%= link_to 'Edit', edit_provider_path(@provider) %> |
+    <% end %>
+
+    <% if policy(@provider).destroy? %>
+    <%= link_to 'Destroy', @provider, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %>
+
+    <%= link_to 'Back', providers_path %>
+
+
+    <br><br>
+    <div
+    id="map"
+    data-markers="<%= @provider_geo.to_json %>"
+    ></div>
+
+
+  </div>
+</div>
+
