@@ -71,6 +71,7 @@ option {
   background-color: #3CBC8D;
   // border: 2px #3CBC8D;
   border-color: black;
+  color: white;
   height: 40px;
   border: 10px;
   border-radius: 5px;
@@ -87,13 +88,14 @@ option {
   // border: 2px #50bc8d;
   color: white;
   border: 10px;
-  border-color: black;
+  border: none;
   margin-left: 0.2px;
 }
 
 .btn:hover {
   transition: background-color 0.5s ease;
   background-color: #21966b;
+  color: white;
 }
 
 .inline_buttons {
