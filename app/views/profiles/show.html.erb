@@ -1,2 +1,36 @@
-<h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
+
+<br>
+<br>
+
+<p>Profile</p>
+
+<div>
+  <div class="card_profile">
+
+    <div><img src="avatar.png"></div>
+
+
+    <h1><%= @profile.name %></h1>
+
+    <h2 class="title"><%= @profile.title %></h2>
+
+    <p><%= @profile.mobile %></p>
+
+
+    <p><%= @profile.work_email %></p>
+
+
+    <div class="btn btn-primary">
+      <p>
+        <%=link_to 'Edit', edit_profile_path(current_user.profile) %>
+      </p>
+    </div>
+
+    <div class="btn btn-primary delete_button">
+      <p>
+        <%=link_to 'Delete', root_path %>
+      </p>
+    </div>
+
+  </div>
+</div>
