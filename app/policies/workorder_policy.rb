@@ -1,5 +1,4 @@
-class ServicePolicy < ApplicationPolicy
-
+class WorkorderPolicy < ApplicationPolicy
   def create?
     true
   end
@@ -18,5 +17,4 @@ private
     record.user == user || user.admin
   end
 end
-
 
