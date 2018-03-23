@@ -19,11 +19,12 @@ class WorkordersController < ApplicationController
   end
 
   def create
-    @workorder = Workorder.new(params[:id])
+    @workorder = Workorder.new(workorder_params)
     @workorder.user = current_user
-    @workorder.provider = Provider.find(params[:item_id])
+    @workorder.provider = Provider.find(params[:provider_id])
+    authorize @workorder
     if @workorder.save!
-      redirect_to user_workorder_path(current_user, @workorder)
+      redirect_to user_workorders_path(current_user, @workorder)
     else
       render :new
     end
@@ -37,10 +38,16 @@ class WorkordersController < ApplicationController
 
 private
 
-def set_workorder
-  @workorder = Workorder.find(params[:id])
-   authorize @workorder
-end
+  def set_workorder
+    @workorder = Workorder.find(params[:id])
+    authorize @workorder
+  end
+
+  def workorder_params
+    params.require(:workorder).permit(
+      :booking_date
+    )
+  end
 
 end
 

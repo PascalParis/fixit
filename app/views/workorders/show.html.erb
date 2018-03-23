@@ -1,1 +1,46 @@
-<h1> this is a test </h1>
+<div class="top-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
+
+  <div class= "top-banner-content" >
+<h3> Your workorders </h3>
+ </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+<% @workorders.each do |workorder| %>
+
+  <div class="card" >
+
+    <div class="message">
+
+      <div class="message-name">
+        <h3><%= link_to workorder.provider.name, provider  %></h3>
+        <p><%= workoder.provider.service.name %></p>
+      </div>
+
+      <div class="message-body">
+        <p><strong>Description</strong></p>
+        <p><%= workorder.provider.phone_number %> <%= provider.email %></p>
+        <p>
+          <%= workorder.provider.presentation %>
+        </p>
+      </div>
+
+     <%=  cl_image_tag workorder.provider.photo, height: 100, width: 100, crop: :fill,  class: "image_card" %>
+
+    </div>
+  </div>
+  <br>
+
+<% end %>
+
+<%= link_to 'New Provider', new_provider_path %>
+</div>
+
+  </div>
+</div>
+
+
+
