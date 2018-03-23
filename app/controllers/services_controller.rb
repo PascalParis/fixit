@@ -5,10 +5,10 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.all
-    authorize @services
   end
 
   def show
+     authorize @workorder
   end
 
   def new

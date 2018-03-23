@@ -10,10 +10,21 @@ Rails.application.routes.draw do
 
   get 'workorders/delete'
 
+
+
   devise_for :users
   root to: 'home#index'
-  resources :services
-  resources :providers
+
+
+  resources :providers do
+    resources :workorders, only: [:new, :create]
+  end
+
+  resources :users, only: :show do
+    resources :workorders, only: [:index, :show, :delete]
+  end
+
+
   resources :profiles
   resources :settings
 

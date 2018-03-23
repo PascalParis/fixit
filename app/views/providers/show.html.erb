@@ -1,3 +1,11 @@
+<div class="top-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
+
+  <div class= "top-banner-content" >
+
+  <h2> <%= @provider.name %> : <%= @provider.service.name %> </h2>
+
+ </div>
+</div>
 
 <div class="container">
   <div class="row margins">
@@ -11,8 +19,11 @@
       <p><strong>Range (km):</strong> <%= @provider.range %> </p>
       <p><strong>Service: </strong><%= @provider.service.name %></p>
       <p>
-        <strong>Lat: </strong><%= @provider.latitude %> |
-        <strong>Long: </strong><%= @provider.longitude %>
+         <div><button class="btn btn-primary "><span><%= link_to "Book the service of this worker", new_provider_workorder_path(@provider), class:"indexlink" %></span></button>
+      </div>
+
+      <!--   <strong>Lat: </strong><%= @provider.latitude %> |
+        <strong>Long: </strong><%= @provider.longitude %> -->
       </p>
     </div>
 
@@ -37,6 +48,7 @@
     id="map"
     data-markers="<%= @provider_geo.to_json %>"
     ></div>
+
 
   </div>
 </div>

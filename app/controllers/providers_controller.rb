@@ -25,7 +25,6 @@ class ProvidersController < ApplicationController
           lng: @provider.longitude,
           range: @provider.range
         }]
-    authorize @provider
   end
 
   def new
