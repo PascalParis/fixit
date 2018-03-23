@@ -6,29 +6,17 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
       <% unless params[:controller] == 'home' %>
 
-        <h1>AWESMOEEE</h1>
+          <%= form_tag(providers_path, method: :get, class: "form") do %>
 
-      <% end %>
+          <%= text_field_tag :address %>
+        <%= collection_select(:service, :id, Service.all, :id, :name, {prompt: 'Find a service'}) %>
 
-
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Search
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <ul>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </div>
-      </div>
-
+<%= submit_tag 'Search', class: "btn btn-primary" %>
+<% end %>
+<% end %>
       <!-- Links when logged in -->
 
       <!-- Avatar with dropdown menu -->

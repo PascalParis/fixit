@@ -42,6 +42,8 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile ||= current_user.profile if current_user.profile
+    authorize @profile
+
   end
 
   def profile_params

@@ -1,2 +1,29 @@
-<h1>Workorders#new</h1>
-<p>Find me in app/views/workorders/new.html.erb</p>
+<div class="top-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/2469/building-construction-building-site-constructing.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
+
+  <div class= "top-banner-content" >
+<h3> Confirmation of the workorder </h3>
+  <h2><%=@provider.name.capitalize%> </h2>
+ </div>
+</div>
+
+<div class="card">
+  <div class="subcard">
+    <div class="subboxleft">
+      <div class="imagediv">
+        <%= cl_image_tag @provider.photo, height: 400, width: 400, crop: :fill %>
+      </div>
+    </div>
+
+
+    <div class="subboxright">
+      <br>
+      <p><b>Service - </b> <%= @provider.service.name %></p>
+      <p><b>Description - </b> <%= @provider.presentation %></p>
+      <p><b>Price per day - </b> <%= @provider.service.price %> €</p>
+      <p><b>Choose a date- </b>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+
