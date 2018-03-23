@@ -19,7 +19,7 @@
       <p><strong>Range (km):</strong> <%= @provider.range %> </p>
       <p><strong>Service: </strong><%= @provider.service.name %></p>
       <p>
-         <div><button class="btn btn-primary "><span><%= link_to "Book the service of this worker", new_provider_workorder_path(@provider), class:"indexlink" %></span></button>
+         <div><%= link_to "Book the service of this worker", new_provider_workorder_path(@provider), class:"indexlink btn btn-primary special_button" %>
       </div>
 
       <!--   <strong>Lat: </strong><%= @provider.latitude %> |
