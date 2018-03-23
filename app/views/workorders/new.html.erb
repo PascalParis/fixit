@@ -21,9 +21,35 @@
       <p><b>Description - </b> <%= @provider.presentation %></p>
       <p><b>Price per day - </b> <%= @provider.service.price %> €</p>
       <p><b>Choose a date- </b>
+
+        <div class="service-book">
+          <%= simple_form_for [@provider,  @workorder], html: { class: 'form-inline' } do |f|%>
+          <%= f.input :booking_date, label: false, required: false %>
+
+          <br>
+          <br>
+
+           <%= f.submit "book", class: "btn btn-primary" %>
+              <% end %>
+            </div>
       <br>
       <br>
+      </div>
     </div>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  $(function() {
+    $('#booking_date').daterangepicker({
+      singleDatePicker: true,
+      showDropdowns: true
+    },
+    function(start, end, label) {
+    });
+  });
+</script>
+
+
 

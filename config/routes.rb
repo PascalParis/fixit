@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
 
   resources :providers do
-    resources :workorders, only: [:new, :create]
+    resources :workorders, only: [:new, :create, :show]
   end
 
   resources :users, only: :show do
