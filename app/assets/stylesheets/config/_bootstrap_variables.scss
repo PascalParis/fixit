@@ -23,3 +23,75 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+margins {
+  padding: 0px;
+}
+
+.card_profile {
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+    padding: 80px;
+    background-color: #F9F9F8;
+
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+  background-color: #3CBC8D;
+  // border: 2px #3CBC8D;
+  border-color: black;
+  height: 40px;
+  border: 10px;
+  margin-left: 0px;
+  display: inline-block;
+  white-space: nowrap;
+  // padding: 30px;
+  text-align: center;
+  border-radius: 2px;
+  flex: 1;
+}
+
+.special_button{
+  vertical-align: middle;
+  height: 40px;
+  // border-radius: 7%;
+  background-color: #3CBC8D;
+  // border: 2px #50bc8d;
+  color: white;
+  border: 10px;
+  border-color: black;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+.delete_button {
+  margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+  border-radius: 2px;
+  padding: 20px;
+  margin-top: 5px;
+}
+
+.btn-flex {
+  display: flex;
+  direction: column;
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
+}
+
+

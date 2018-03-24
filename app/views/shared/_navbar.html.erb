@@ -1,53 +1,53 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+  <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
-      <% unless params[:controller] == 'home' %>
+    <% unless params[:controller] == 'home' %>
 
-          <%= form_tag(providers_path, method: :get, class: "form") do %>
+    <%= form_tag(providers_path, method: :get, class: "form") do %>
 
-          <%= text_field_tag :address %>
-        <%= collection_select(:service, :id, Service.all, :id, :name, {prompt: 'Find a service'}) %>
+    <%= text_field_tag :address %>
+    <%= collection_select(:service, :id, Service.all, :id, :name, {prompt: 'Find a service'}) %>
 
-<%= submit_tag 'Search', class: "btn btn-primary" %>
-<% end %>
-<% end %>
-      <!-- Links when logged in -->
+    <%= submit_tag 'Search', class: "btn btn-primary" %>
+    <% end %>
+    <% end %>
+    <!-- Links when logged in -->
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "avatar.png",class: "avatar dropdown-toggle rounded-circle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"%>
-          <%= current_user.email %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <% if current_user.profile %>
-                <%= link_to profile_path(current_user.profile) do %>
-                  <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-                <% end %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+    <!-- Avatar with dropdown menu -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= current_user.email %>
+            <%= image_tag "avatar.png",class: "avatar dropdown-toggle rounded-circle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"%>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <% if current_user.profile %>
+            <%= link_to profile_path(current_user.profile) do %>
+            <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+            <% end %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+            <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
       </div>
+    </div>
     <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <!-- Login link (when logged out) -->
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 
